@@ -81,6 +81,7 @@ export const buffBgYellow = "/img/buff_bg_yellow.webp"
 export const buffBgRed = "/img/buff_bg_red.webp"
 export const buffBgGreen = "/img/buff_bg_green.webp"
 export const buffPreservation = "/img/buff_base_preservation.webp"
+export const buffOverPreservation = "/img/buff_base_overpreservation.webp"
 export const buffFullpower = "/img/buff_base_fullpower.webp"
 export const buffConcentration = "/img/buff_base_concentration.webp"
 export const arrowVoUp = "/img/score_up_arrow_vo_up.webp"
@@ -175,6 +176,10 @@ const extraEffectNameMap: { [x: number]: ProduceExamEffectType } = {
   [ProduceExamEffectType.ExamCardMove]: ProduceExamEffectType.ExamCardCreateId,
   [ProduceExamEffectType.ExamStaminaRecoverMultiple]: ProduceExamEffectType.ExamStaminaRecoverFix,
   [ProduceExamEffectType.ExamLessonFullPowerPoint]: ProduceExamEffectType.ExamLesson,
+  [ProduceExamEffectType.ExamBlockValueMultiple]: ProduceExamEffectType.ExamBlock,
+  [ProduceExamEffectType.ExamReviewValueMultiple]: ProduceExamEffectType.ExamReview,
+  [ProduceExamEffectType.ExamLessonValueMultiple]: ProduceExamEffectType.ExamLesson,
+  [ProduceExamEffectType.ExamAggressiveValueMultiple]: ProduceExamEffectType.ExamCardPlayAggressive,
 }
 
 const extraGrowEffectNameMap: { [x: number]: ProduceExamEffectType } = {
@@ -338,6 +343,35 @@ export const buffTypeBackground = {
   [ProduceExamEffectType.ExamParameterBuffReduce]: buffBgRed,
   [ProduceExamEffectType.ExamLessonValueMultipleDown]: buffBgRed,
   [ProduceExamEffectType.ExamAddGrowEffect]: buffBgGreen,
+  [ProduceExamEffectType.ExamParameterBuffPerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamLessonBuffPerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamReviewPerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamAggressivePerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamBlockPerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamFullPowerPointPerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamLessonDependBlockAndSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamLessonDependAggressiveAndSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamLessonDependReviewAndSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamEffectPerSearchCount]: buffBgBlue,
+  [ProduceExamEffectType.ExamOverPreservation]: buffOverPreservation,
+  [ProduceExamEffectType.ExamParameterBuffDependLessonBuff]: buffBgBlue,
+  [ProduceExamEffectType.ExamAggressiveDependReview]: buffBgBlue,
+  [ProduceExamEffectType.ExamEnthusiasticAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamEnthusiasticMultiple]: buffBgBlue,
+  [ProduceExamEffectType.ExamFullPowerLessonMultipleAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamConcentrationLessonMultipleAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamLessonBuffAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamParameterBuffAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamAggressiveAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamReviewAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamFullPowerPointAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamGrowEffectLessonAddAdditive]: buffBgBlue,
+  [ProduceExamEffectType.ExamParameterBuffMultiplePerTurnReduce]: buffBgRed,
+  [ProduceExamEffectType.ExamLessonValueMultipleDependReviewOrAggressive]: buffBgBlue,
+  [ProduceExamEffectType.ExamReviewMultiple]: buffBgBlue,
+  [ProduceExamEffectType.ExamMultipleEnthusiasticLesson]: buffBgBlue,
+  [ProduceExamEffectType.ExamMultipleConcentrationLesson]: buffBgBlue,
+  [ProduceExamEffectType.ExamMultipleFullPowerLesson]: buffBgBlue,
 }
 
 export const growBuffTypeBackground = {
