@@ -1,9 +1,9 @@
 // Generated code. DO NOT EDIT!
 
 import * as penum from './penum';
-import * as pcommon from './pcommon.d.ts';
-import * as ptransaction from './ptransaction.d.ts';
-import * as pmaster from './pmaster.d.ts';
+import type * as pcommon from './pcommon.d.ts';
+import type * as ptransaction from './ptransaction.d.ts';
+import type * as pmaster from './pmaster.d.ts';
 
 export type CompetitionPreSeasonResult = {
   seasonStartTime: string
@@ -128,6 +128,7 @@ export type UserData = {
   userProduceCharacterList: ptransaction.UserProduceCharacter[]
   userProduceDrinkList: ptransaction.UserProduceDrink[]
   userProduceGroupCharacterList: ptransaction.UserProduceGroupCharacter[]
+  userProduceGrowthPanelList: ptransaction.UserProduceGrowthPanel[]
   userProduceIdolCardList: ptransaction.UserProduceIdolCard[]
   userProduceItemList: ptransaction.UserProduceItem[]
   userProduceLiveList: ptransaction.UserProduceLive[]
@@ -137,9 +138,11 @@ export type UserData = {
   userProduceProgressBusinessList: ptransaction.UserProduceProgressBusiness[]
   userProduceProgressEffectList: ptransaction.UserProduceProgressEffect[]
   userProduceProgressEventList: ptransaction.UserProduceProgressEvent[]
+  userProduceProgressIntervalList: ptransaction.UserProduceProgressInterval[]
   userProduceProgressMemoryList: ptransaction.UserProduceProgressMemory[]
   userProduceProgressPresentList: ptransaction.UserProduceProgressPresent[]
   userProduceProgressProduceCardList: ptransaction.UserProduceProgressProduceCard[]
+  userProduceProgressProduceCustomizeItemList: ptransaction.UserProduceProgressProduceCustomizeItem[]
   userProduceProgressScheduleList: ptransaction.UserProduceProgressSchedule[]
   userProduceProgressShopList: ptransaction.UserProduceProgressShop[]
   userProduceProgressSupportCardList: ptransaction.UserProduceProgressSupportCard[]
@@ -149,6 +152,7 @@ export type UserData = {
   userProduceSupportCardDeckList: ptransaction.UserProduceSupportCardDeck[]
   userProfile: ptransaction.UserProfile
   userPvpRate: ptransaction.UserPvpRate
+  userPvpRateDeckList: ptransaction.UserPvpRateDeck[]
   userPvpRateUnit: ptransaction.UserPvpRateUnit
   userShopItemList: ptransaction.UserShopItem[]
   userStoryList: ptransaction.UserStory[]

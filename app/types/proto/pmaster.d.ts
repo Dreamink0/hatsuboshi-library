@@ -1,7 +1,7 @@
 // Generated code. DO NOT EDIT!
 
 import * as penum from './penum';
-import * as pcommon from './pcommon.d.ts';
+import type * as pcommon from './pcommon.d.ts';
 
 export type Achievement = {
   id: string
@@ -106,10 +106,12 @@ export type Character = {
   liveCostumeId: string
   dearnessMissionGroupId: string
   dearnessStoryUnlockItemId: string
+  produceCardIds: string[]
   otherStoryIds: string[]
   potentialRank1VoiceAssetId: string
   potentialRank3VoiceAssetId: string
   potentialRank4VoiceAssetId: string
+  useProduceCardVoiceAssetId: string
   standingListPositionX: number
   standingListPositionY: number
   rosterDetailPositionX: number
@@ -121,6 +123,13 @@ export type Character = {
   produceHighScoreRushPositionX: number
   produceHighScoreRushPositionY: number
   order: number
+}
+export type CharacterActorLookEffector = {
+  characterId: string
+  jointLimitAssetId: string
+}
+export type CharacterActorLookEffectorList = {
+  list: CharacterActorLookEffector[]
 }
 export type CharacterAdv = {
   characterId: string
@@ -140,6 +149,8 @@ export type CharacterColor = {
   labelTextColor: string
   transitionGradientColor1: string
   transitionGradientColor2: string
+  decorationMainGradientColor1: string
+  decorationMainGradientColor2: string
 }
 export type CharacterColorList = {
   list: CharacterColor[]
@@ -161,6 +172,7 @@ export type CharacterDearnessLevel = {
   targetDescription: string
   trueEndAchievementProduceType: penum.ProduceType
   dearnessPointThreshold: number
+  storyGroupOrder: number
 }
 type CharacterDearnessLevel_ProduceSkill = {
   id: string
@@ -521,6 +533,7 @@ export type ExamMotion = {
   sceneLayoutId: string
   cameraId: string
   targetIds: string[]
+  targetStepTypes: penum.ProduceStepType[]
 }
 export type ExamMotionList = {
   list: ExamMotion[]
@@ -585,6 +598,9 @@ export type ExamSetting = {
   examAutoPlaySearchCommandPlanLimits: number[]
   examLessonValueMultipleDependReviewOrAggressiveMultiplePermil: number
   examLessonValueMultipleDependReviewOrAggressiveMaxPermil: number
+  fixMoveCardShuffleDeckEnable: boolean
+  examBuffConsumptionDownPermil: number
+  examBuffConsumptionAddPermil: number
 }
 export type ExamSettingList = {
   list: ExamSetting[]
@@ -600,6 +616,19 @@ export type ExamSimulation = {
 }
 export type ExamSimulationList = {
   list: ExamSimulation[]
+}
+export type ExamUnitMotion = {
+  produceCharacterUnitId: string
+  unitCharacterId: string
+  motionType: penum.ExamMotionType
+  number: number
+  bodyMotionId: string
+  facialMotionId: string
+  targetIds: string[]
+  targetStepTypes: penum.ProduceStepType[]
+}
+export type ExamUnitMotionList = {
+  list: ExamUnitMotion[]
 }
 export type ExchangeItemCategory = {
   exchangeId: string
@@ -850,11 +879,20 @@ export type IdolCard = {
   examEffectType: penum.ProduceExamEffectType
   produceChallengeSlotId: string
   showExamEffectType: penum.ProduceExamEffectType
+  secondProduceCardId: string
+  beforeLevelLimitProduceItemId: string
+  afterLevelLimitProduceItemId: string
+  primaStellaConsumptionSetId: string
+  idolCardPrimaStellaProduceSkillId: string
+  primaStellaAchievementId: string
   potentialRankVoiceAssetId: string
   produceSelectVoiceAssetId: string
   produceScheduleFrontVoiceGroupId: string
   produceScheduleBackVoiceGroupId: string
   useProduceCardVoiceAssetId: string
+  useSecondProduceCardVoiceAssetId: string
+  usePrimaStellaProduceCardVoiceAssetId: string
+  primaStellaVoiceAssetId: string
   viewStartTime: string
   order: string
   produceStoryIds: string[]
@@ -934,6 +972,15 @@ export type IdolCardPotentialProduceSkill = {
 export type IdolCardPotentialProduceSkillList = {
   list: IdolCardPotentialProduceSkill[]
 }
+export type IdolCardPrimaStellaProduceSkill = {
+  id: string
+  produceSkillId: string
+  produceSkillLevel: number
+  order: number
+}
+export type IdolCardPrimaStellaProduceSkillList = {
+  list: IdolCardPrimaStellaProduceSkill[]
+}
 export type IdolCardSimulation = {
   idolCardId: string
   number: number
@@ -982,6 +1029,13 @@ export type IdolCardSkin = {
   afterDetailScale: number
   beforeLevelLimitRankPositionPattern: number
   afterLevelLimitRankPositionPattern: number
+  primaStellaListPositionX: number
+  primaStellaListPositionY: number
+  primaStellaListScale: number
+  primaStellaDetailPositionX: number
+  primaStellaDetailPositionY: number
+  primaStellaDetailScale: number
+  primaStellaPositionPattern: number
   viewStartTime: string
   order: string
 }
@@ -1049,6 +1103,7 @@ export type Item = {
   produceHighScoreEventId: string
   tourEventId: string
   researchEventId: string
+  produceGrowthPanelSheetId: string
   idolCardRarity: penum.IdolCardRarity
   supportCardRarity: penum.SupportCardRarity
   characterId: string
@@ -1183,6 +1238,17 @@ export type Media = {
   endTime: string
   order: number
 }
+export type MediaExternalLink = {
+  id: string
+  url: string
+  assetId: string
+  ignorePlatformTypes: penum.PlatformType[]
+  viewConditionSetId: string
+  order: number
+}
+export type MediaExternalLinkList = {
+  list: MediaExternalLink[]
+}
 export type MediaList = {
   list: Media[]
 }
@@ -1233,6 +1299,7 @@ export type MemoryAbility = {
   evaluation: number
   rarity: penum.SkillRarity
   produceGroupIds: string[]
+  isUniqueActivation: boolean
 }
 export type MemoryAbilityList = {
   list: pcommon.MemoryAbility[]
@@ -1521,6 +1588,13 @@ export type PhotoFacialMotionGroup = {
 export type PhotoFacialMotionGroupList = {
   list: PhotoFacialMotionGroup[]
 }
+export type PhotoLookEffectorCharacter = {
+  characterId: string
+  lookAtSettingAssetId: string
+}
+export type PhotoLookEffectorCharacterList = {
+  list: PhotoLookEffectorCharacter[]
+}
 export type PhotoLookTargetVoiceCharacter = {
   characterId: string
   number: number
@@ -1600,6 +1674,12 @@ export type Produce = {
   produceNavigationLoseId: string
   gradientColor1: string
   gradientColor2: string
+  easyProduceItemIds: string[]
+  easyConditionSetId: string
+  easyProduceConditionSetId: string
+  produceSplitType: penum.ProduceSplitType
+  splitPairProduceId: string
+  selectionMemoryEmbedProduceCardId: string
   order: number
 }
 export type ProduceAdv = {
@@ -1617,6 +1697,7 @@ export type ProduceCard = {
   name: string
   assetId: string
   isCharacterAsset: boolean
+  voiceAssetId: string
   rarity: penum.ProduceCardRarity
   planType: penum.ProducePlanType
   category: penum.ProduceCardCategory
@@ -1649,6 +1730,8 @@ export type ProduceCard = {
   maxCustomizeCount: number
   isConversion: boolean
   moveProduceExamTriggerIds: string[]
+  originCharacterId: string
+  originPrimaStellaIdolCardId: string
   viewStartTime: string
   isLimited: boolean
   order: string
@@ -1657,6 +1740,7 @@ type ProduceCard_PlayEffect = {
   produceExamTriggerId: string
   produceExamEffectId: string
   hideIcon: boolean
+  isOncePlayEffect: boolean
 }
 export type ProduceCardConversion = {
   beforeProduceCardId: string
@@ -1834,6 +1918,51 @@ export type ProduceCharacterAdvList = {
 export type ProduceCharacterList = {
   list: ProduceCharacter[]
 }
+export type ProduceCharacterUnit = {
+  id: string
+  produceGroupId: string
+  targetCharacterId: string
+  unitCharacterId: string
+  name: string
+  liveCostumeId: string
+  liveCostumeHeadId: string
+}
+export type ProduceCharacterUnitList = {
+  list: ProduceCharacterUnit[]
+}
+export type ProduceCustomizeItem = {
+  id: string
+  name: string
+  effectType: penum.ProduceItemEffectType
+  planType: penum.ProducePlanType
+  produceDescriptions: pcommon.ProduceDescriptionSegment[]
+  assetId1: string
+  assetId2: string
+  assetId3: string
+  assetId4: string
+  assetId5: string
+  isBase: boolean
+  isTerminal: boolean
+  examEffectTurn: number
+  examEffectCount: number
+  produceExamTriggerId: string
+  produceExamEffectIds: string[]
+  produceEffectTriggerCount: number
+  produceEffectTriggerInterval: number
+  produceTriggerId: string
+  produceEffectIds: string[]
+  effectGroupIds: string[]
+}
+export type ProduceCustomizeItemList = {
+  list: ProduceCustomizeItem[]
+}
+export type ProduceCustomizeItemRelationship = {
+  parentProduceCustomizeItemId: string
+  childProduceCustomizeItemId: string
+}
+export type ProduceCustomizeItemRelationshipList = {
+  list: ProduceCustomizeItemRelationship[]
+}
 export type ProduceDescriptionExamEffect = {
   type: penum.ProduceExamEffectType
   name: string
@@ -1851,6 +1980,7 @@ export type ProduceDescriptionLabel = {
   id: string
   name: string
   produceDescriptionSwapId: string
+  iconAssetId: string
   produceDescriptions: pcommon.ProduceDescriptionSegment[]
 }
 export type ProduceDescriptionLabelList = {
@@ -1899,6 +2029,15 @@ export type ProduceDescriptionProduceStep = {
 }
 export type ProduceDescriptionProduceStepList = {
   list: ProduceDescriptionProduceStep[]
+}
+export type ProduceDescriptionProduceType = {
+  produceType: penum.ProduceType
+  produceSplitType: penum.ProduceSplitType
+  name: string
+  template: string
+}
+export type ProduceDescriptionProduceTypeList = {
+  list: ProduceDescriptionProduceType[]
 }
 export type ProduceDescriptionSwap = {
   id: string
@@ -2097,6 +2236,7 @@ export type ProduceExamBattleNpcMob = {
   id: string
   name: string
   assetId: string
+  isBorder: boolean
 }
 export type ProduceExamBattleNpcMobList = {
   list: ProduceExamBattleNpcMob[]
@@ -2124,9 +2264,18 @@ export type ProduceExamEffect = {
   produceCardSearchId: string
   movePositionType: penum.ProduceCardMovePositionType
   pickRangeType: penum.ProducePickRangeType
+  pickCountReferenceProduceCardSearchId: string
+  pickCountType: penum.ProducePickCountType
   pickCountMin: number
   pickCountMax: number
+  produceCardSearchId2: string
+  pickRangeType2: penum.ProducePickRangeType
+  pickCountReferenceProduceCardSearchId2: string
+  pickCountType2: penum.ProducePickCountType
+  pickCountMin2: number
+  pickCountMax2: number
   chainProduceExamEffectId: string
+  chainProduceExamEffectIds: string[]
   produceExamStatusEnchantId: string
   produceCardStatusEnchantId: string
   produceCardGrowEffectIds: string[]
@@ -2231,6 +2380,32 @@ export type ProduceGroupLiveCommon = {
 export type ProduceGroupLiveCommonList = {
   list: ProduceGroupLiveCommon[]
 }
+export type ProduceGrowthPanel = {
+  id: string
+  level: number
+  produceGrowthPanelSheetId: string
+  produceSplitType: penum.ProduceSplitType
+  name: string
+  produceDescriptions: pcommon.ProduceDescriptionSegment[]
+  unlockConditionSetId: string
+  unlockItemQuantity: number
+  isUnlockRecommended: boolean
+  produceEffectIds: string[]
+  order: number
+}
+export type ProduceGrowthPanelList = {
+  list: ProduceGrowthPanel[]
+}
+export type ProduceGrowthPanelSheet = {
+  id: string
+  produceType: penum.ProduceType
+  unlockItemId: string
+  missionGroupId: string
+  achievementId: string
+}
+export type ProduceGrowthPanelSheetList = {
+  list: ProduceGrowthPanelSheet[]
+}
 export type ProduceGuide = {
   idolCardId: string
   producerLevel: number
@@ -2314,6 +2489,7 @@ export type ProduceItem = {
   isChallenge: boolean
   isHighScoreRush: boolean
   isResearch: boolean
+  isEasy: boolean
   viewStartTime: string
   isLimited: boolean
   order: string
@@ -2386,6 +2562,16 @@ export type ProduceLive = {
   unitLiveThumbnailAssetIds: string[]
   liveOverrideAssetId: string
   additionalActorAssetIds: string[]
+  costumeId: string
+  costumeHeadId: string
+}
+export type ProduceLiveEvaluation = {
+  produceId: string
+  characterId: string
+  liveType: penum.ProduceLiveType
+}
+export type ProduceLiveEvaluationList = {
+  list: ProduceLiveEvaluation[]
 }
 export type ProduceLiveList = {
   list: ProduceLive[]
@@ -2416,6 +2602,7 @@ export type ProduceResultMotion = {
   facialAssetId: string
   voiceAssetId: string
   produceGroupIds: string[]
+  produceIds: string[]
 }
 export type ProduceResultMotionList = {
   list: ProduceResultMotion[]
@@ -2475,6 +2662,10 @@ export type ProduceSetting = {
   produceAuditionTrendAssessmentPermilUpper: number
   produceAuditionTrendAssessmentPermilLower: number
   maxLegendProduceCardCount: number
+  stepIntervalUpgradeProduceCardCount: number
+  stepIntervalCustomizeProduceCardCount: number
+  selectionMemoryNeedProduceCardCount: number
+  produceDrinkPossessMaxLimit: number
 }
 export type ProduceSettingList = {
   list: ProduceSetting[]
@@ -2485,6 +2676,8 @@ export type ProduceSkill = {
   rarity: penum.SkillRarity
   tag: string
   planType: penum.ProducePlanType
+  produceType: penum.ProduceType
+  produceSplitType: penum.ProduceSplitType
   activationCount: number
   produceEffectId1: string
   produceTriggerId1: string
@@ -2499,6 +2692,17 @@ export type ProduceSkill = {
 }
 export type ProduceSkillList = {
   list: ProduceSkill[]
+}
+export type ProduceSplitAdv = {
+  produceType: penum.ProduceType
+  type: penum.ProduceAdvType
+  produceSplitTypes: penum.ProduceSplitType
+  targetCharacterId: string
+  title: string
+  assetId: string
+}
+export type ProduceSplitAdvList = {
+  list: ProduceSplitAdv[]
 }
 export type ProduceStartMotion = {
   characterId: string
@@ -2519,8 +2723,34 @@ export type ProduceStepAuditionCharacter = {
   failureNextIdolAuditionRank: number
   auditionSelectHeaderSilhouetteAssetId: string
 }
+export type ProduceStepAuditionCharacterBgm = {
+  characterId: string
+  produceId: string
+  stepType: penum.ProduceStepType
+  bgmAssetId: string
+}
+export type ProduceStepAuditionCharacterBgmList = {
+  list: ProduceStepAuditionCharacterBgm[]
+}
 export type ProduceStepAuditionCharacterList = {
   list: ProduceStepAuditionCharacter[]
+}
+export type ProduceStepAuditionCharacterUnitMotion = {
+  produceCharacterUnitId: string
+  characterId: string
+  targetCharacterId: string
+  stepType: penum.ProduceStepType
+  motionType: penum.ProduceStepAuditionMotionType
+  number: number
+  facialAssetId: string
+  bodyAssetId: string
+  voiceAssetId: string
+  produceIds: string[]
+  motionSeAssetId: string
+  motionSeStartMilliseconds: number
+}
+export type ProduceStepAuditionCharacterUnitMotionList = {
+  list: ProduceStepAuditionCharacterUnitMotion[]
 }
 export type ProduceStepAuditionDifficulty = {
   id: string
@@ -2537,8 +2767,10 @@ export type ProduceStepAuditionDifficulty = {
   auditionType: penum.ProduceStepAuditionType
   isUnlockAnimation: boolean
   voteCountBaseLine: number
+  isStaticNpcScore: boolean
   dearnessLevel: number
   voteCount: number
+  starScoreBonusBaseLine: number
 }
 export type ProduceStepAuditionDifficultyList = {
   list: ProduceStepAuditionDifficulty[]
@@ -2555,9 +2787,33 @@ export type ProduceStepAuditionMotion = {
   cameraId: string
   produceGroupIds: string[]
   auditionType: penum.ProduceStepAuditionType
+  produceIds: string[]
+  motionSeAssetId: string
+  motionSeStartMilliseconds: number
 }
 export type ProduceStepAuditionMotionList = {
   list: ProduceStepAuditionMotion[]
+}
+export type ProduceStepAuditionRivalActor = {
+  id: string
+  produceCharacterId: string
+  stepType: penum.ProduceStepType
+  number: number
+  actorAssetIds: string[]
+  produceIds: string[]
+}
+export type ProduceStepAuditionRivalActorList = {
+  list: ProduceStepAuditionRivalActor[]
+}
+export type ProduceStepAuditionRivalActorMotion = {
+  rivalActorId: string
+  motionType: penum.ProduceStepAuditionMotionType
+  number: number
+  bodyAssetId: string
+  facialAssetId: string
+}
+export type ProduceStepAuditionRivalActorMotionList = {
+  list: ProduceStepAuditionRivalActorMotion[]
 }
 export type ProduceStepEventDetail = {
   id: string
@@ -2628,6 +2884,30 @@ export type ProduceStepLessonLevelList = {
 export type ProduceStepLessonList = {
   list: ProduceStepLesson[]
 }
+export type ProduceStepOpenLesson = {
+  id: string
+  stamina: number
+  subParameterType: penum.ProduceParameterType
+  mainParameter: number
+  subParameter: number
+  star: number
+}
+export type ProduceStepOpenLessonList = {
+  list: ProduceStepOpenLesson[]
+}
+export type ProduceStepOpenLessonMotion = {
+  characterId: string
+  stepType: penum.ProduceStepType
+  number: number
+  advId: string
+  voiceAssetId1: string
+  voiceAssetId2: string
+  seAssetId: string
+  bgmAssetId: string
+}
+export type ProduceStepOpenLessonMotionList = {
+  list: ProduceStepOpenLessonMotion[]
+}
 export type ProduceStepSelfLesson = {
   id: string
   progressLevel: number
@@ -2662,6 +2942,10 @@ export type ProduceStepTransition = {
   advAssetId: string
   voiceAssetId: string
   produceGroupId: string
+  produceIds: string[]
+  unitCharacterIds: string[]
+  unitCharacterCostumeHeadIds: string[]
+  unitCharacterCostumeIds: string[]
 }
 export type ProduceStepTransitionList = {
   list: ProduceStepTransition[]
@@ -2702,6 +2986,8 @@ export type ProduceWeekMotion = {
   costumeId: string
   advAssetId: string
   voiceAssetId: string
+  produceIds: string[]
+  enableOpenLesson: boolean
 }
 export type ProduceWeekMotionList = {
   list: ProduceWeekMotion[]
@@ -2802,6 +3088,10 @@ type PvpRateConfig_Stage = {
   bgmAssetId: string
   startTimelineAssetId: string
   examTimelineAssetId: string
+  vocal: number
+  dance: number
+  visual: number
+  produceExamBattleScoreConfigId: string
 }
 export type PvpRateConfigList = {
   list: PvpRateConfig[]
@@ -2936,15 +3226,10 @@ export type Setting = {
   storyEventTipsAssetIDs: string[]
   storyEventPointLimit: number
   seminarGuidanceViewConditionSetID: string
-  officialWebSiteURL: string
-  iPPortalWebSiteURL: string
   photoNameLengthLimit: number
   homeEventEndTimeDisplayHour: number
   idolCardPieceExchangeItemID: string
   storyEventMainStoryTipsAssetIDs: string[]
-  officialDiscordURL: string
-  officialYouTubeIdolMasterURL: string
-  officialYouTubeHatsuBoshiURL: string
   storyEventGuildMissionTipAssetIDs: string[]
   photoPoseWaitVoicePlayIntervalSeconds: number
   photoBackgroundDefaultBGMAssetID: string
@@ -2975,6 +3260,15 @@ export type Setting = {
   researchRankingDisplayCount: number
   homeCharacterRandomIdolViewConditionSetID: string
   badgeEditViewConditionSetID: string
+  userBlockLimitCount: number
+  selectionMemoryLimitCount: number
+  sceneTransitionSDCharacterAnimationViewConditionSetID: string
+  sceneTransitionSDCharacterAnimationFirstAssetIDs: string[]
+  sceneTransitionSDCharacterAnimationSecondAssetIDs: string[]
+  researchPointLimit: number
+  idolCardPrimaStellaLevelLimitRank: number
+  idolCardPrimaStellaDearnessLevel: number
+  profileReport2026Enable: boolean
   produceDailyMemoryRentalLimit: number
   produceDailyFreeContinueCount: number
   produceContinueItemID: string
@@ -3015,6 +3309,8 @@ export type Setting = {
   produceAuditionTrendAssessmentPermilSeparateEnable: boolean
   produceMaxMemoryDeckCount: number
   produceMaxSupportCardDeckCount: number
+  produceNextIdolAuditionProEasyModeConditionSetID: string
+  produceHatsuboshiIdolFestivalFinalTargetProducerLevel: number
   gashaPickupStoryCampaignCharacterDearnessLevel: number
   gashaAnimationReversalSsrPermil: number
   gashaAnimationReversalPickUpProduceIdolSsrPermil: number
@@ -3049,6 +3345,10 @@ export type Setting = {
   pvpRateExamBattleAllSkipUnlockConditionSetID: string
   pvpRateRehearsalViewConditionSetID: string
   pvpRateRankingDisplayCount: number
+  pvpRateMaxDeckCount: number
+  pvpRateDeckNameLengthLimit: number
+  pvpRateDeckRecommendFirstPriorityPermil: number
+  pvpRateDeckRecommendSecondPriorityPermil: number
   examBattleSubMemoryParameterPermil: number
   examBattleSubMemoryStaminaPermil: number
   examBattleConditionThresholdMultipleScore: number
@@ -3061,6 +3361,7 @@ export type Setting = {
   pushPvpRateRemainingPlayCountDoNotNotifyNoLoginDay: number
   aprilFool2025TransitionStoryID: string
   aprilFool2025ProduceLiveMusicID: string
+  aprilFool2026ProduceLiveMusicID: string
   produceNextIdolAuditionMasterRankingUnlockConditionSetID: string
   producerRankingUnlockConditionSetID: string
   producerRankingBGMAssetID: string
@@ -3077,9 +3378,11 @@ export type Setting = {
   competitionGradeUpgradeAnimationThresholdGrade: number
   competitionGradeStayAnimationThresholdGrade: number
   competitionBgmAssetID: string
-  webStoreBannerDisplayEnable: boolean
   webStoreLinkURL: string
-  webStoreShopBannerAssetID: string
+  webStoreShopBannerIOSDisplayEnable: boolean
+  webStoreShopBannerIOSAssetID: string
+  webStoreShopBannerAndroidDisplayEnable: boolean
+  webStoreShopBannerAndroidAssetID: string
 }
 export type SettingList = {
   list: Setting[]
@@ -3151,6 +3454,7 @@ export type Story = {
   unlockConditionSetId: string
   reward: pcommon.Reward
   previousStoryId: string
+  dearnessStoryTitle: string
   order: number
 }
 export type StoryEvent = {
@@ -3368,11 +3672,9 @@ export type Tour = {
   bannerAssetId: string
   storyGroupId: string
   examSettingId: string
-  continueCount: number
-  basePoint: number
   tourStageTimelineId: string
-  liveTicketName: string
   tourMotionId: string
+  aprilFoolAssetIds: string[]
   order: number
 }
 export type TourList = {

@@ -223,6 +223,12 @@ export enum ConditionType {
   MissionGroupNotComplete = 68,
   AppVersionGreaterThanOrEqual = 69,
   AppVersionLessThanOrEqual = 70,
+  ProduceCardConversion = 71,
+  CompetitionSeasonGrade = 72,
+  CompetitionBestGrade = 73,
+  ProduceGrowthPanelLevel = 74,
+  ProduceGrowthPanelLevelCount = 75,
+  IdolCardPrimaStellaCount = 76,
   Set = 998,
   NegativeSet = 999,
 }
@@ -359,6 +365,8 @@ export enum ErrorCode {
   ShopExceedPurchaseThresholdOnPurchase = 2048,
   ShopExceedMaxJewelQuantityOnPurchase = 2049,
   ShopExceedPurchaseLimitOnPurchase = 2050,
+  PaymentBalanceInvalid = 2051,
+  BlockCountLimitExceeded = 2052,
   ProduceOutdatedRentalSupportCard = 2301,
   ProduceOutdatedRentalMemory = 2302,
   ProduceHistoryNotFound = 2303,
@@ -453,6 +461,8 @@ export enum ExamDescriptionType {
   ExamProduceCardSearch = 17,
   CustomizeEffectValuePercent1 = 20,
   CustomizeEffectValuePercent2 = 21,
+  ExamEndTurnTimer = 22,
+  ExamTurnMinus = 23,
 }
 export enum ExamGameType {
   Unknown = 0,
@@ -578,6 +588,22 @@ export enum ExamStatusEffectType {
   GrowEffectLessonAddAdditive = 62,
   ReviewMultiple = 63,
   LessonParameterMultipleDependReviewOrAggressive = 64,
+  StanceLockConcentration = 65,
+  StanceLockFullPower = 66,
+  StanceLockPreservation = 67,
+  ReviewCountAdd = 68,
+  EffectTimerEndTurn = 69,
+  ReviewTurnEndReduceLock = 70,
+  ParameterBuffTurnEndReduceLock = 71,
+  BuffConsumptionDown = 72,
+  BuffConsumptionAdd = 73,
+  SearchPlayCardBuffConsumptionChange = 74,
+  PlayCardLimitPlayableValueAdd = 75,
+  ParameterBuffAdditiveFix = 76,
+  LessonBuffAdditiveFix = 77,
+  AggressiveAdditiveFix = 78,
+  ReviewAdditiveFix = 79,
+  FullPowerPointAdditiveFix = 80,
 }
 export enum ExchangeItemCategoryType {
   Unknown = 0,
@@ -806,6 +832,8 @@ export enum IdolCardLevelLimitEffectType {
   ProduceVoDaVi = 2,
   ProduceStamina = 3,
   ProduceSkill = 4,
+  SecondProduceCardUpgrade = 5,
+  ProduceItemUpgrade = 6,
 }
 export enum IdolCardLevelLimitRank {
   Unknown = 0,
@@ -1091,6 +1119,7 @@ export enum MissionType {
   AbsoluteSupportCardLevelCount = 316,
   AbsoluteSupportCardLevelLimitRankCount = 317,
   AbsoluteSupportCardLevel = 319,
+  AbsoluteIdolCardPrimaStellaCount = 320,
   AbsoluteFanCount = 335,
   AbsoluteDearnessLevel = 337,
   AbsoluteMeishiUpdateCount = 343,
@@ -1126,6 +1155,7 @@ export enum MissionType {
   AbsoluteSeminarExamClear = 421,
   AbsoluteProducePlayCharacterCount = 422,
   AbsoluteProduceStoryRead = 423,
+  AbsoluteProduceGrowthPanelComplete = 424,
   ConditionClear = 998,
   ProduceConditionClear = 999,
   ProduceConditionClearBeforeLiveEvaluation = 1000,
@@ -1206,6 +1236,7 @@ export enum PreferenceType {
   Unknown = 0,
   PhotoButtonExecuteType = 1,
   ProduceDisableForceLiveCommon = 2,
+  ProduceNextIdolAuditionProEasyMode = 3,
 }
 export enum ProduceAdvType {
   Unknown = 0,
@@ -1433,6 +1464,7 @@ export enum ProduceConditionType {
   CurrentAuditionStepType = 80,
   CurrentAuditionStepSelectNumber = 81,
   DearnessPoint = 82,
+  Star = 83,
   Set = 998,
   NegativeSet = 999,
 }
@@ -1466,6 +1498,7 @@ export enum ProduceDescriptionType {
   ExamCardCreateSearchTurnTimerProduceCardName = 35,
   ExamProduceExamEffect = 36,
   ExamProduceCardSearch = 37,
+  IconAsset = 50,
 }
 export enum ProduceDisplayType {
   Unknown = 0,
@@ -1592,6 +1625,13 @@ export enum ProduceEffectType {
   LegendProduceCardCountAddition = 125,
   ExamPermanentLessonStatusEnchant = 126,
   ExamPermanentAuditionStatusEnchant = 127,
+  AuditionNpcWeaken = 128,
+  ProduceCustomizeItemUpgrade = 129,
+  StarPermilUp = 130,
+  StarAddition = 131,
+  ProduceCardChangeSelect = 132,
+  ProduceDrinkPossessLimitUp = 133,
+  ShopProduceCardPriceDiscountMultiplePermanent = 134,
 }
 export enum ProduceEventCharacterType {
   Unknown = 0,
@@ -1678,6 +1718,14 @@ export enum ProduceExamAutoEvaluationType {
   ExamFullPowerPointAdditive = 43,
   ExamGrowEffectLessonAddAdditive = 44,
   ExamLessonValueMultipleDependReviewOrAggressive = 45,
+  StanceLockConcentration = 46,
+  StanceLockFullPower = 47,
+  StanceLockPreservation = 48,
+  ExamReviewCountAdd = 49,
+  ExamReviewTurnEndReduceLock = 50,
+  ExamParameterBuffTurnEndReduceLock = 51,
+  ExamBuffConsumptionDown = 52,
+  ExamBuffConsumptionAdd = 53,
 }
 export enum ProduceExamEffectType {
   Unknown = 0,
@@ -1817,6 +1865,38 @@ export enum ProduceExamEffectType {
   ExamMultipleFullPowerLesson = 185,
   ExamLessonDependBlockConsumptionSum = 186,
   ExamForcePlayCardSearchWithCost = 187,
+  ExamBlockDependBlockConsumptionSum = 188,
+  ExamEnthusiasticTurnAdd = 189,
+  ExamEffectTimerEndTurn = 190,
+  ExamStanceLockConcentration = 191,
+  ExamStanceLockFullPower = 192,
+  ExamStanceLockPreservation = 193,
+  ExamCardShuffleDeckGrave = 194,
+  ExamReviewCountAdd = 195,
+  ExamReviewTurnEndReduceLock = 196,
+  ExamParameterBuffTurnEndReduceLock = 197,
+  ExamBuffConsumptionDown = 198,
+  ExamBuffConsumptionAdd = 199,
+  ExamSearchPlayCardBuffConsumptionChange = 200,
+  ExamPlayCardLimitPlayableValueAdd = 201,
+  ExamReviewDependReviewConsumptionSum = 202,
+  ExamLessonBuffReduceCancellable = 203,
+  ExamParameterBuffReduceCancellable = 204,
+  ExamAggressiveReduceCancellable = 205,
+  ExamReviewReduceCancellable = 206,
+  ExamFullPowerPointReduceCancellable = 207,
+  ExamStatusEnchantTurnAdd = 208,
+  ExamStatusEnchantCountAdd = 209,
+  ExamParameterBuffAdditiveFix = 210,
+  ExamLessonBuffAdditiveFix = 211,
+  ExamAggressiveAdditiveFix = 212,
+  ExamReviewAdditiveFix = 213,
+  ExamFullPowerPointAdditiveFix = 214,
+  ExamMoveGrowEffect = 215,
+  ExamLessonDependEnthusiasticGetSum = 216,
+  ExamCardShuffleDeckLost = 217,
+  ExamFullPowerPointDependFullPowerPointGetSum = 218,
+  ExamStatusEnchantEncore = 219,
 }
 export enum ProduceExamFieldStatusType {
   Unknown = 0,
@@ -1857,6 +1937,10 @@ export enum ProduceExamFieldStatusType {
   PlayCardSearch = 52,
   ParameterBuffMultiplePerTurnUp = 53,
   EnthusiasticUp = 54,
+  EnchantCountUp = 55,
+  TurnPlayCardCountUp = 56,
+  DeckCardAllNoDuplicate = 57,
+  DebuffCountUp = 58,
 }
 export enum ProduceExamPhaseType {
   Unknown = 0,
@@ -1903,6 +1987,18 @@ export enum ProduceExamPhaseType {
   ExamStanceChangeFromConcentration = 45,
   ExamStanceChangeFromPreservation = 46,
   ExamStanceChangeFromFullPower = 47,
+  ExamCardUpgrade = 48,
+  ExamPlayCardMoveGrave = 49,
+  ExamParameterBuffUpInterval = 50,
+  ExamLessonBuffUpInterval = 51,
+  ExamReviewUpInterval = 52,
+  ExamAggressiveUpInterval = 53,
+  ExamFullPowerPointUpInterval = 54,
+  ExamStanceChangePreservationInterval = 55,
+  ExamStanceChangeConcentrationInterval = 56,
+  ExamStanceChangeFullPowerInterval = 57,
+  ExamCardUpgradeInterval = 58,
+  ExamCardDrawInterval = 59,
   None = 999,
 }
 export enum ProduceExamResultType {
@@ -1998,6 +2094,12 @@ export enum ProducePhaseType {
   EndPresent = 58,
   EndShop = 59,
 }
+export enum ProducePickCountType {
+  Unknown = 0,
+  Normal = 1,
+  Shortage = 2,
+  Over = 3,
+}
 export enum ProducePickRangeType {
   Unknown = 0,
   Select = 1,
@@ -2030,6 +2132,7 @@ export enum ProduceProgressConditionType {
   Dance = 8,
   Visual = 9,
   StepNumber = 10,
+  ProduceCardSearchCount = 11,
 }
 export enum ProduceProgressStatus {
   Unknown = 0,
@@ -2069,11 +2172,14 @@ export enum ProduceResourceOriginType {
   MemoryAbility = 4,
   ProduceCard = 5,
   ProduceItem = 6,
+  ProduceCustomizeItem = 7,
+  Character = 8,
   StepAudition = 10,
   StepEvent = 11,
   StepPresent = 12,
   StepShop = 13,
   ExamGimmick = 14,
+  StepInterval = 15,
 }
 export enum ProduceResourceType {
   Unknown = 0,
@@ -2086,7 +2192,11 @@ export enum ProduceResourceType {
   ParameterDance = 7,
   ParameterVisual = 8,
   Vote = 9,
+  Star = 10,
+  ProduceCustomizeItem = 11,
   HighScoreGold = 100,
+  CardChange = 994,
+  CardCustomize = 995,
   CardUpgrade = 997,
   CardDelete = 998,
   Set = 999,
@@ -2095,30 +2205,6 @@ export enum ProduceRewardType {
   Unknown = 0,
   Probability = 1,
   Ratio = 2,
-}
-export enum ProducerLevelUnlockType {
-  Unknown = 0,
-  ProduceCard = 1,
-  ProduceDrink = 2,
-  ProduceCardConversion = 3,
-  ShopProduceCardUpgrade = 10,
-  ShopProduceCardDelete = 11,
-  ProduceCardSelectRerollCount = 12,
-  ProduceCardExcludeCount = 13,
-}
-export enum ProducerRankingGrade {
-  Unknown = 0,
-  Normal = 1,
-  Bronze = 2,
-  Silver = 3,
-  Gold = 4,
-  Rainbow = 5,
-  RainbowPlus = 6,
-}
-export enum ProducerRankingPointType {
-  Unknown = 0,
-  Produce = 1,
-  Tower = 2,
 }
 export enum ProduceScheduleLocationType {
   Unknown = 0,
@@ -2132,6 +2218,11 @@ export enum ProduceScheduleLocationType {
   Classroom2 = 8,
   Rooftop2 = 9,
   Courtyard2 = 10,
+  ProducerRoom5 = 11,
+  ProducerRoom6 = 12,
+  Rooftop3 = 13,
+  Courtyard3 = 14,
+  Classroom3 = 15,
 }
 export enum ProduceScheduleMotionType {
   Unknown = 0,
@@ -2162,6 +2253,11 @@ export enum ProduceSkillEffectType {
   ProduceRewardSet = 1000,
   ProduceEffect = 1001,
 }
+export enum ProduceSplitType {
+  Unknown = 0,
+  Selection = 1,
+  Final = 2,
+}
 export enum ProduceStartMotionType {
   Unknown = 0,
   Reaction = 1,
@@ -2174,6 +2270,7 @@ export enum ProduceStepAuditionMotionType {
   Result2 = 3,
   Result3 = 4,
   Failure = 5,
+  PreResult = 6,
 }
 export enum ProduceStepAuditionType {
   Unknown = 0,
@@ -2260,6 +2357,22 @@ export enum ProduceStepType {
   LegendLessonDanceSp = 32,
   LegendLessonVisualNormal = 33,
   LegendLessonVisualSp = 34,
+  OpenLessonVocalNormal = 35,
+  OpenLessonVocalSp = 36,
+  OpenLessonVocalNormalStar = 37,
+  OpenLessonVocalSpStar = 38,
+  OpenLessonDanceNormal = 39,
+  OpenLessonDanceSp = 40,
+  OpenLessonDanceNormalStar = 41,
+  OpenLessonDanceSpStar = 42,
+  OpenLessonVisualNormal = 43,
+  OpenLessonVisualSp = 44,
+  OpenLessonVisualNormalStar = 45,
+  OpenLessonVisualSpStar = 46,
+  Interval = 47,
+  EventSchoolVocal = 48,
+  EventSchoolDance = 49,
+  EventSchoolVisual = 50,
 }
 export enum ProduceStoryType {
   Unknown = 0,
@@ -2284,11 +2397,38 @@ export enum ProduceTriggerOriginType {
   Drink = 7,
   Produce = 8,
   DearnessStory = 9,
+  ProduceCustomizeItem = 10,
+  ProduceGrowthPanel = 11,
 }
 export enum ProduceType {
   Unknown = 0,
   FirstStar = 1,
   NextIdolAudition = 2,
+  HatsuboshiIdolFestival = 3,
+}
+export enum ProducerLevelUnlockType {
+  Unknown = 0,
+  ProduceCard = 1,
+  ProduceDrink = 2,
+  ProduceCardConversion = 3,
+  ShopProduceCardUpgrade = 10,
+  ShopProduceCardDelete = 11,
+  ProduceCardSelectRerollCount = 12,
+  ProduceCardExcludeCount = 13,
+}
+export enum ProducerRankingGrade {
+  Unknown = 0,
+  Normal = 1,
+  Bronze = 2,
+  Silver = 3,
+  Gold = 4,
+  Rainbow = 5,
+  RainbowPlus = 6,
+}
+export enum ProducerRankingPointType {
+  Unknown = 0,
+  Produce = 1,
+  Tower = 2,
 }
 export enum PurchaseTransactionStatusType {
   Unknown = 0,
@@ -2392,6 +2532,7 @@ export enum ResourceType {
   DearnessPoint = 23,
   Badge = 24,
   CompetitionPlayCount = 25,
+  ProduceCardConversion = 26,
   JewelTotal = 1100,
   JewelPaidOnly = 1101,
   Set = 9999,
@@ -2414,6 +2555,9 @@ export enum ResultGrade {
   Sss = 14,
   SssPlus = 15,
   Ssss = 16,
+  SsssPlus = 17,
+  Sssss = 18,
+  SssssPlus = 19,
 }
 export enum ResultGradeType {
   Unknown = 0,
@@ -2421,6 +2565,7 @@ export enum ResultGradeType {
   MemoryParameter = 3,
   ProduceIdolCardParameter = 5,
   ProduceVoteCount = 6,
+  ProduceStar = 7,
 }
 export enum RewardProvideType {
   Unknown = 0,
@@ -2679,6 +2824,7 @@ export enum TutorialType {
   IdolCardSkinUnit = 28,
   DearnessTop = 29,
   DearnessPoint = 30,
+  PrimaStella = 31,
   ProduceIdolCardSelect = 100,
   ProduceSupportCardSelect = 101,
   ProduceMemorySelect = 102,
@@ -2710,6 +2856,18 @@ export enum TutorialType {
   ProduceStepCustomize = 128,
   ProduceStepFanPresent = 129,
   ProduceLegendTop = 130,
+  ProduceHatsuboshiIdolFestivalTop = 131,
+  ProduceHatsuboshiIdolFestivalFinalTop = 132,
+  ProduceHatsuboshiIdolFestivalSelectionSchedule = 133,
+  ProduceHatsuboshiIdolFestivalFinalSchedule = 134,
+  ProduceGrowthPanelTop = 135,
+  ProduceCustomizeItemCustomizeEffect = 136,
+  ProduceStepOpenLesson = 137,
+  ProduceHatsuboshiIdolFestivalStepSchool = 138,
+  ProduceHatsuboshiIdolFestivalFinalStepAuditionMid1 = 139,
+  ProduceStepInterval = 140,
+  ProduceSelectionMemoryCreate = 141,
+  ProduceSelectionMemorySelect = 142,
   MissionPanel = 200,
   ProduceHighScore = 201,
   StoryEvent = 202,

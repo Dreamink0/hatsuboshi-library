@@ -1,7 +1,7 @@
 // Generated code. DO NOT EDIT!
 
 import * as penum from './penum';
-import * as pcommon from './pcommon.d.ts';
+import type * as pcommon from './pcommon.d.ts';
 
 export type User = {
   serverUserId: string
@@ -119,6 +119,7 @@ export type UserIdolCard = {
   levelLimitRank: penum.IdolCardLevelLimitRank
   potentialRank: penum.IdolCardPotentialRank
   idolCardSkinId: string
+  primaStellaUpgradedTime: string
   createdTime: string
 }
 export type UserIdolCardSkin = {
@@ -183,6 +184,7 @@ export type UserMemory = {
   researchId: string
   researchRerollCount: number
   isResearchFavorite: boolean
+  isPrimaStella: boolean
   endingLiveType: penum.ProduceLiveType
   produceLiveType: penum.ProduceLiveType
   liveCostumeId: string
@@ -272,6 +274,7 @@ export type UserPhotoPose = {
 export type UserPreference = {
   photoButtonExecuteType: penum.PhotoButtonExecuteType
   produceDisableForceLiveCommon: boolean
+  produceNextIdolAuditionProEasyMode: boolean
 }
 export type UserProduce = {
   produceId: string
@@ -299,6 +302,7 @@ export type UserProduceCharacter = {
   playCount: number
   clearCount: number
   unlockChallengeSlotNumber: number
+  highestScore: number
 }
 export type UserProduceDrink = {
   produceDrinkId: string
@@ -309,6 +313,11 @@ export type UserProduceGroupCharacter = {
   viewUnlockAnimationAuditionTypes: penum.ProduceStepAuditionType[]
   endingLiveType: penum.ProduceLiveType
   disableForceLiveCommon: boolean
+}
+export type UserProduceGrowthPanel = {
+  produceGrowthPanelId: string
+  level: number
+  enable: boolean
 }
 export type UserProduceIdolCard = {
   produceId: string
@@ -350,10 +359,13 @@ export type UserProduceProgress = {
   isInterrupted: boolean
   hasInterruptedBefore: boolean
   startDearnessLevel: number
+  isPrimaStella: boolean
+  userSelectionMemoryId: string
   isResearch: boolean
   researchExternalProduceCardIds: string[]
   researchMemoryPickupProduceCardIds: string[]
   researchProduceItemIds: string[]
+  researchMemoryProduceCardPickupDisable: boolean
   produceHighScoreId: string
   produceCampaigns: pcommon.ProduceCampaign[]
   status: penum.ProduceProgressStatus
@@ -378,6 +390,8 @@ export type UserProduceProgress = {
   isChangeCostumeTraining: boolean
   rentalPublicUserId: string
   changeCostumeLiveUnitCharacterIds: string[]
+  changeCostumeTrainingUnitCharacterIds: string[]
+  resultSelectionMemory: pcommon.SelectionMemory
   vocal: number
   dance: number
   visual: number
@@ -398,6 +412,8 @@ export type UserProduceProgress = {
   producePointGetDisableTurn: number
   voteCount: number
   highScoreGold: number
+  star: number
+  starPermil: number
   characterProduceSkills: UserProduceProgress_ProduceSkill[]
   dearnessStoryDearnessLevel: number
   idolCardProduceSkills: UserProduceProgress_ProduceSkill[]
@@ -412,9 +428,11 @@ export type UserProduceProgress = {
   produceItemGetDisableTurn: number
   produceDrinkIds: string[]
   produceDrinkGetDisableTurn: number
+  produceDrinkPossessAdditionalCount: number
   auditionEffectParameterBonusPermil: number
   auditionNpcEnhancePermil: number
   auditionParameterGrowthRatePermil: number
+  auditions: UserProduceProgress_AuditionResult[]
   eventSchoolStaminaPermil: number
   eventActivityProducePointPermil: number
   eventBusinessVoteCountPermil: number
@@ -446,7 +464,16 @@ export type UserProduceProgress = {
   shopProduceDrinkDiscountPermils: number[]
   shopRemainRerollCount: number
   hiddenShopReroll: boolean
+  intervalCurrentProduceCardUpgradeCount: number
+  intervalRerollPrice: number
   satisfyProduceExamTriggerIds: string[]
+}
+type UserProduceProgress_AuditionResult = {
+  auditionStepType: penum.ProduceStepType
+  selectNumber: number
+  rank: number
+  score: number
+  point: number
 }
 type UserProduceProgress_ExamStatusEnchant = {
   originType: penum.ProduceTriggerOriginType
@@ -479,6 +506,7 @@ export type UserProduceProgressAudition = {
   dancePermil: number
   visualPermil: number
   voteBonusPermil: number
+  starBonusPermil: number
   stepSelectNumber: number
   rank: number
   score: number
@@ -487,6 +515,8 @@ export type UserProduceProgressAudition = {
   produceItemIds: string[]
   produceItemFireCounts: number[]
   examSkipCount: number
+  point: number
+  auditionNpcs: pcommon.AuditionNpcResult[]
 }
 export type UserProduceProgressBusiness = {
   businessType: penum.ProduceStepBusinessType
@@ -510,6 +540,7 @@ export type UserProduceProgressEffect = {
   pickCountMin: number
   pickCountMax: number
   pickIndexes: number[]
+  pickIndexes2: number[]
   activatedProduceItemIds: string[]
   isNext: boolean
   produceEffectId: string
@@ -531,6 +562,16 @@ export type UserProduceProgressEvent = {
   suggestionIndex: string
   success: boolean
 }
+export type UserProduceProgressInterval = {
+  positionNumber: number
+  purchased: boolean
+  resourceType: penum.ProduceResourceType
+  resourceId: string
+  upgradeCount: number
+  staminaRecoverValue: number
+  price: number
+  nextPrice: number
+}
 export type UserProduceProgressMemory = {
   number: number
   userMemoryId: string
@@ -542,6 +583,7 @@ type UserProduceProgressMemory_MemoryAbility = {
   id: string
   level: number
   triggerCount: number
+  disable: boolean
 }
 export type UserProduceProgressPresent = {
   positionNumber: number
@@ -569,6 +611,12 @@ export type UserProduceProgressProduceCard = {
   customizes: pcommon.ProduceCardCustomize[]
   customizing: boolean
 }
+export type UserProduceProgressProduceCustomizeItem = {
+  number: number
+  produceCustomizeItemId: string
+  triggerCount: number
+  reactionCount: number
+}
 export type UserProduceProgressSchedule = {
   stepNumber: number
   addStepLevel: number
@@ -584,11 +632,25 @@ export type UserProduceProgressSchedule = {
   legendDanceSpProduceStepLessonId: string
   legendVisualProduceStepLessonId: string
   legendVisualSpProduceStepLessonId: string
+  vocalProduceStepOpenLessonId: string
+  vocalSpProduceStepOpenLessonId: string
+  vocalStarProduceStepOpenLessonId: string
+  vocalSpStarProduceStepOpenLessonId: string
+  danceProduceStepOpenLessonId: string
+  danceSpProduceStepOpenLessonId: string
+  danceStarProduceStepOpenLessonId: string
+  danceSpStarProduceStepOpenLessonId: string
+  visualProduceStepOpenLessonId: string
+  visualSpProduceStepOpenLessonId: string
+  visualStarProduceStepOpenLessonId: string
+  visualSpStarProduceStepOpenLessonId: string
   stepTypes: penum.ProduceStepType[]
+  stepSubParameterTypes: penum.ProduceParameterType[]
   selectedStepType: penum.ProduceStepType
   examResultType: penum.ProduceExamResultType
   refreshStamina: number
   auditionRank: number
+  auditionNpcs: pcommon.AuditionNpcResult[]
   stepSelectNumber: number
   maxAuditionStepSelectNumber: number
 }
@@ -669,6 +731,12 @@ export type UserPvpRate = {
   phaseType: penum.PvpRatePhaseType
   rivalMatchTime: string
   supportBonusPermyriad: number
+}
+export type UserPvpRateDeck = {
+  number: number
+  name: string
+  mainUserMemoryId: string
+  subUserMemoryId: string
 }
 export type UserPvpRateUnit = {
   stageFormations: pcommon.PvpRateSetupUnitStageFormation[]

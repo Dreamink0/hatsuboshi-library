@@ -142,7 +142,7 @@ function handleBrowserRequest(
           responseHeaders.set("Content-Type", "text/html");
           responseHeaders.set(
             "Content-Security-Policy",
-            "connect-src 'self' *.idolism.org;" +
+            "connect-src 'self' *.idolism.org localhost:8787;" +
             "img-src 'self' blob: data: *.idolism.org res.cloudinary.com *.githubusercontent.com"
           );
           // responseHeaders.set('CDN-Cache-Control', 'public, max-age=600, stale-while-revalidate=1800');
