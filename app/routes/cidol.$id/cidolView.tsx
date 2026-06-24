@@ -134,7 +134,7 @@ export function CidolView({
                 alt="produce scenario"
                 className="object-contain w-6 h-6 aspect-square"
               />
-              <p>{`${t(produceScenario.title)} (${t(produceScenario.difficulty)})`}</p>
+              <p>{`${t(produceScenario.title)} ${produceScenario.difficulty ? `(${t(produceScenario.difficulty)})` : ""}`}</p>
             </div>
           </Accordion.Control>
           <Accordion.Panel>
@@ -145,8 +145,8 @@ export function CidolView({
     })
 
   return (
-    <div className="p-4 2xl:grid 2xl:grid-cols-2">
-      <div className="2xl:fixed 2xl:w-[calc((100vw-264px)/2)]">
+    <div className="p-4 2xl:grid 2xl:grid-cols-[3fr_2fr] gap-4 max-w-[1280px] mx-auto">
+      <div className="">
         <Title order={2} size="h3" lineClamp={1} className="mb-4">
           {idolCard.name} / {character.lastName + character.firstName}
         </Title>
@@ -185,41 +185,45 @@ export function CidolView({
             setValue={(value) => setLevels(prev => ({ ...prev, potentialLevel: value }))}
           />
         </div>
+        <div className="mt-4">
+          <Accordion variant="separated" value={openedAccs} onChange={setOpenedAccs} multiple>
+            <Accordion.Item value="Special Training Bonus">
+              <Accordion.Control>
+                <div className="flex items-center gap-1">
+                  <img
+                    src={limitIcon}
+                    alt="limit icon"
+                    className="object-contain w-6 h-6 aspect-square"
+                  />
+                  <p>{t("Special Training Bonus")}</p>
+                </div>
+              </Accordion.Control>
+              <Accordion.Panel>
+                <LevelLimitUpView levelLimits={idolCard.levelLimits} />
+              </Accordion.Panel>
+            </Accordion.Item>
+
+            <Accordion.Item value="Potential Level Bonus">
+              <Accordion.Control>
+                <div className="flex items-center gap-1">
+                  <img
+                    src={potentialIcon}
+                    alt="potential icon"
+                    className="object-contain w-6 h-6 aspect-square"
+                  />
+                  <p>{t("Potential Level Bonus")}</p>
+                </div>
+              </Accordion.Control>
+              <Accordion.Panel>
+                <PotentialLevelView potentials={idolCard.potentials} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          </Accordion>
+        </div>
       </div>
 
       <div className="mt-4 2xl:mt-0 2xl:min-h-[70vh] 2xl:col-start-2">
         <Accordion variant="separated" value={openedAccs} onChange={setOpenedAccs} multiple>
-          <Accordion.Item value="Special Training Bonus">
-            <Accordion.Control>
-              <div className="flex items-center gap-1">
-                <img
-                  src={limitIcon}
-                  alt="limit icon"
-                  className="object-contain w-6 h-6 aspect-square"
-                />
-                <p>{t("Special Training Bonus")}</p>
-              </div>
-            </Accordion.Control>
-            <Accordion.Panel>
-              <LevelLimitUpView levelLimits={idolCard.levelLimits} />
-            </Accordion.Panel>
-          </Accordion.Item>
-
-          <Accordion.Item value="Potential Level Bonus">
-            <Accordion.Control>
-              <div className="flex items-center gap-1">
-                <img
-                  src={potentialIcon}
-                  alt="potential icon"
-                  className="object-contain w-6 h-6 aspect-square"
-                />
-                <p>{t("Potential Level Bonus")}</p>
-              </div>
-            </Accordion.Control>
-            <Accordion.Panel>
-              <PotentialLevelView potentials={idolCard.potentials} />
-            </Accordion.Panel>
-          </Accordion.Item>
           {auditionViews}
         </Accordion>
       </div>

@@ -44,6 +44,9 @@ export function CidolCard({
   const viGrowthPercentage = getGrowthPercentage(growthRates.vi)
 
   const pCard = card.produceCards[limitLevel < 3 ? 0 : 1]
+  const secondPCard = card.secondProduceCardId ? card.secondProduceCards[limitLevel < 6 ? 0 : 1] : null
+  const primastellaCard = card.primastellaCards.length ? card.primastellaCards[0] : null
+
   const pItem = card.produceItems[potentialLevel < 2 ? 0 : 1]
 
   const cidolImageComponent = <CidolImage limitLevel={limitLevel} potentialLevel={potentialLevel} card={card} assetSkinId={assetSkinId} showIcons />
@@ -90,9 +93,27 @@ export function CidolCard({
         </div>
 
         <div className="flex-1 flex flex-row sm:flex-col">
-          <div className="flex-1 flex flex-row gap-2 justify-center sm:justify-start items-center">
-            <ProduceCardIcon withHoverDescription showCustom card={pCard} className="flex-none relative h-[68px] w-[68px]" />
-            <div className="hidden sm:line-clamp-6 flex-1"><EffectDescription descriptions={pCard.produceDescriptions} /></div>
+          <div className="flex-1 flex flex-row">
+            <div className="flex-1 flex flex-row gap-2 justify-center sm:justify-start items-center">
+              <ProduceCardIcon withHoverDescription showCustom card={pCard} className="flex-none relative h-[68px] w-[68px]" />
+              <div className="hidden sm:line-clamp-6 flex-1"><EffectDescription descriptions={pCard.produceDescriptions} /></div>
+            </div>
+            {
+              secondPCard
+                ? <div className="flex-1 flex flex-row gap-2 justify-center sm:justify-start items-center">
+                  <ProduceCardIcon withHoverDescription showCustom card={secondPCard} className="flex-none relative h-[68px] w-[68px]" />
+                  <div className="hidden sm:line-clamp-6 flex-1"><EffectDescription descriptions={secondPCard.produceDescriptions} /></div>
+                </div>
+                : null
+            }
+            {
+              primastellaCard
+                ? <div className="flex-1 flex flex-row gap-2 justify-center sm:justify-start items-center">
+                  <ProduceCardIcon withHoverDescription showCustom card={primastellaCard} className="flex-none relative h-[68px] w-[68px]" />
+                  <div className="hidden sm:line-clamp-6 flex-1"><EffectDescription descriptions={primastellaCard.produceDescriptions} /></div>
+                </div>
+                : null
+            }
           </div>
           <div className="flex-1 flex flex-row gap-2 justify-center sm:justify-start items-center">
             <ProduceItemIcon withHoverDescription item={pItem} className="flex-none relative h-[68px] w-[68px]" />

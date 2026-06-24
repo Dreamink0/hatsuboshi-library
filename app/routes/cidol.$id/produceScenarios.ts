@@ -1,4 +1,4 @@
-import { getAssetImgUrl, hajimeImg, niaImg } from "~/assets/media";
+import { getAssetImgUrl, hajimeImg, hajimeLegendImg, hifImg, niaImg } from "~/assets/media";
 import { ProduceType } from "~/types/proto/penum";
 
 export const getProduceScenarioStrings = (
@@ -34,6 +34,24 @@ export const getProduceScenarioStrings = (
       imgUrl: getAssetImgUrl(niaImg),
       produceType: ProduceType.NextIdolAudition,
       difficulty: "Master",
+    }
+    case "produce-006": return {
+      title: "Scenario: HAJIME Legend",
+      imgUrl: getAssetImgUrl(hajimeLegendImg),
+      produceType: ProduceType.FirstStar,
+      difficulty: "",
+    }
+    case "produce-007": return {
+      title: "Scenario: H.I.F Selection",
+      imgUrl: getAssetImgUrl(hifImg),
+      produceType: ProduceType.HatsuboshiIdolFestival,
+      difficulty: "",
+    }
+    case "produce-008": return {
+      title: "Scenario: H.I.F Tournament",
+      imgUrl: getAssetImgUrl(hifImg),
+      produceType: ProduceType.HatsuboshiIdolFestival,
+      difficulty: "",
     }
     default: return {
       title: "Unknown",

@@ -98,6 +98,8 @@ const fullCidolImgTemplate1 = `img_general_{id}_1-full${extension}`
 
 export const hajimeImg = "img_general_ui_produce-group-1_logo"
 export const niaImg = "img_general_ui_produce-group-2_logo"
+export const hajimeLegendImg = "img_general_ui_produce-group-1_logo2"
+export const hifImg = "img_general_ui_produce-group-3_logo-profile-report"
 
 export function getCsprtFullImgUrl(assetId: string) {
   return VITE_IMG_PREFIX + fullCsprtImgTemplate.replace("{id}", assetId)
@@ -185,6 +187,8 @@ const extraEffectNameMap: { [x: number]: ProduceExamEffectType } = {
   [ProduceExamEffectType.ExamLessonAddMultipleLessonBuff]: ProduceExamEffectType.ExamLessonBuff,
   [ProduceExamEffectType.ExamReviewPerSearchCount]: ProduceExamEffectType.ExamReview,
   [ProduceExamEffectType.ExamLessonBuffDependParameterBuff]: ProduceExamEffectType.ExamLessonBuff,
+  [ProduceExamEffectType.ExamLessonDependStamina]: ProduceExamEffectType.ExamLesson,
+  [ProduceExamEffectType.ExamLessonDependPlayCardCountSum]: ProduceExamEffectType.ExamLesson,
 }
 
 const extraGrowEffectNameMap: { [x: number]: ProduceExamEffectType } = {

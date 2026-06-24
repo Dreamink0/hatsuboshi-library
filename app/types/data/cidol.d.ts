@@ -26,6 +26,8 @@ import { XProduceCard, XCustProduceCard } from "./pcard"
 
 export type XIdolCard = IdolCard & {
   produceCards: XCustProduceCard[],
+  secondProduceCards: XCustProduceCard[],
+  primastellaCards: XCustProduceCard[],
   produceItems: ProduceItem[],
   idolCardSkins: IdolCardSkin[],
   levelLimits: (

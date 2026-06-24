@@ -10,7 +10,7 @@ export const defaultIdolCardFilter: IdolCardFilter = {
   countSecondaryAttr: true,
   attributes: [],
   characters: [],
-  limitLevel: 4,
+  limitLevel: 6,
   potentialLevel: 0,
   countTEBonus: true,
 }
